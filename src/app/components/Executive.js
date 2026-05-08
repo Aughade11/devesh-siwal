@@ -1113,7 +1113,7 @@ const handleSubmit = async (e) => {
           <div className="flex flex-wrap gap-5">
 
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/ddevesh-siwal-8b84b729?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
               target="_blank"
               className="
                 inline-flex
