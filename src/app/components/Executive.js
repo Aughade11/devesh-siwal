@@ -101,7 +101,7 @@ useEffect(() => {
         1
       );
 
-    const totalSlides = 5;
+    const totalSlides = 6;
 
     const index = Math.min(
       totalSlides - 1,
@@ -305,7 +305,7 @@ const handleSubmit = async (e) => {
           </h1>
 
           <h2 className="text-center text-white text-2xl">
-            25 Years of Building What Lasts
+            25+ Years of Building What Lasts
           </h2>
 
           <p className="text-center mx-auto leading-relaxed text-white/80 text-lg">
@@ -332,6 +332,81 @@ const handleSubmit = async (e) => {
           </h3>
 
         </div>
+        {/* ACHIEVEMENTS */}
+
+<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 pt-15">
+
+  {[
+    {
+      number: "₹1,200Cr",
+      text: "Merchandise inventory listed on Payed platform",
+    },
+
+    {
+      number: "5,800+",
+      text: "Offline stores onboarded on Payed",
+    },
+
+    {
+      number: "3,500",
+      text: "Team led directly & indirectly at Sahara Q Shop",
+    },
+
+    {
+      number: "GWR",
+      text: "Guinness World Record — 315 stores in 1 day",
+    },
+
+  ].map((item, index) => (
+
+    <div
+      key={index}
+      className="
+        bg-white/5
+        border
+        border-white/10
+        rounded-3xl
+        p-8
+        text-center
+        backdrop-blur-sm
+        hover:-translate-y-2
+        hover:border-[#3cb7ff]
+        transition-all
+        duration-500
+      "
+    >
+
+      <h3
+        className="
+          text-4xl
+          md:text-5xl
+          font-bold
+          text-[#3cb7ff]
+          mb-4
+        "
+      >
+        {item.number}
+      </h3>
+
+      <p
+        className="
+          text-white/80
+          leading-relaxed
+          text-sm
+          md:text-base
+        "
+      >
+        {item.text}
+      </p>
+
+    </div>
+
+  ))}
+
+</div>
+
+
+
 
       </section>
       {/* CORE EXPERTISE */}
@@ -345,32 +420,32 @@ const handleSubmit = async (e) => {
     {[
       {
         title: "Strategic Planning & Growth",
-        desc: "Formulating sustainable business strategies that survive real-world pressure and create measurable long-term growth."
+        desc: "Formulating and implementing sustainable strategies that survive real-world pressure — from market entry to turnaround to scale."
       },
 
       {
         title: "Brand & Business Development",
-        desc: "Building brands that command trust, strengthen positioning, and create meaningful market relevance."
+        desc: "Building brands that mean something. From product launches to full rebranding mandates, shaping how the market sees you — and why it should care."
       },
 
       {
         title: "Sales & Operational Excellence",
-        desc: "Driving profitability through disciplined operations, scalable systems, and high-performance execution."
+        desc: "Driving profitability through disciplined operations, high-performance team design, and distribution strategies built for the long game."
       },
 
       {
         title: "Organizational Development",
-        desc: "Designing cultures and leadership ecosystems where accountability and growth thrive together."
+        desc: "Designing teams and cultures where talent thrives, accountability is real, and results are not a coincidence."
       },
 
       {
         title: "Financial Planning & P&L Ownership",
-        desc: "Leading financial stewardship with disciplined planning, cost optimization, and sustainable profitability."
+        desc: "Full financial stewardship — from budget construction to cost discipline — with a relentless focus on sustainable profitability."
       },
 
       {
         title: "Go-to-Market Execution",
-        desc: "Transforming strategic vision into measurable traction through launch execution and market positioning."
+        desc: "Translating vision into action: product launches, market positioning, competitive strategy, and the discipline to see it through to results."
       }
 
     ].map((item, index) => (
@@ -488,8 +563,7 @@ const handleSubmit = async (e) => {
             </h3>
 
             <p className="max-w-3xl mx-auto text-white/80 leading-relaxed text-lg">
-              Industry expertise spanning both legacy structures
-              and digital disruption.
+              Industry expertise that spans the old economy and the new — giving you a strategist who understands both legacy structures and digital disruption from the inside.
             </p>
 
           </div>
@@ -530,68 +604,241 @@ const handleSubmit = async (e) => {
       </section>
       {/* KEY SKILLS */}
 <section
-  id="skills"
-  className="blue-gradient py-28 overflow-hidden"
+  id="career"
+  className="blue-gradient py-28 px-6"
 >
 
-  <div className="max-w-7xl mx-auto px-6">
+  <div className="max-w-6xl mx-auto">
 
     {/* HEADING */}
-    <div className="text-center mb-20">
 
-      <h2 className="hero-text text-white mb-4">
-              <span className="section-title reveal-title">
-              KEY SKILLS
-            </span>
-            </h2>
+    <div className="text-center mb-24">
 
-    
+      <h2 className="hero-text text-white mb-6">
+
+        <span className="section-title reveal-title">
+          PROFESSIONAL EXPERIENCE
+        </span>
+
+      </h2>
 
     </div>
 
-  </div>
 
-  {/* MARQUEE */}
-  <div className="skills-marquee">
+    {/* EXPERIENCE LIST */}
 
-    <div className="skills-track">
+    <div className="space-y-20">
 
       {[
-        "Strategic Planning",
-        "Brand Development",
-        "Operational Excellence",
-        "Distribution Strategy",
-        "Business Development",
-        "P&L Ownership",
-        "Team Leadership",
-        "Go-to-Market",
-        "Financial Planning",
-        "Organizational Design",
-        "Product Launches",
-        "Customer Experience",
+        {
+          year: "Mar 2025 – Present",
+          company: "KISNA",
+          category: "Jewellery retail",
+          title: "Chief Operating Officer",
+          desc: "End-to-end operational leadership at India's fastest-growing diamond and gold jewellery brand (Hari Krishna Group) — scaling omni-channel formats, driving Shop-in-Shop expansion, and architecting the franchise network across Tier 1, 2 & 3 cities.",
+          tags: [
+            "SIS expansion",
+            "Franchise network",
+            "E-commerce",
+            "P&L ownership",
+            "Supply chain",
+          ],
+        },
 
-        /* DUPLICATE FOR SMOOTH LOOP */
+        {
+          year: "Jan 2021 – Feb 2025",
+          company: "PAYED",
+          category: "Payments & e-commerce",
+          title: "Chief Executive Officer",
+          desc: "Conceived, proposed, and built a hybrid payments-and-marketplace platform from scratch — onboarding 5,800 offline stores, listing ₹1,200 Cr in merchandise inventory, and sustaining 30%+ MoM GMV growth. Designed India's first closed-loop commerce-fintech ecosystem (UPSI).",
+          tags: [
+            "Platform architecture",
+            "UPSI / fintech",
+            "GMV growth 30%+",
+            "Microloans & insurance",
+            "WMS / OMS",
+          ],
+        },
 
-        "Strategic Planning",
-        "Brand Development",
-        "Operational Excellence",
-        "Distribution Strategy",
-        "Business Development",
-        "P&L Ownership",
-        "Team Leadership",
-        "Go-to-Market",
-        "Financial Planning",
-        "Organizational Design",
-        "Product Launches",
-        "Customer Experience"
+        {
+          year: "Sep 2017 – Dec 2020",
+          company: "Edunguru Inc.",
+          category: "Ed-tech",
+          title: "Chief Operating Officer",
+          desc: "Launched Sahara India's e-learning venture integrating online content with physical classrooms — completing 18,000 hours of content, turning the division cash-positive in 2 years and net-profitable in 3.",
+          tags: [
+            "P&L turnaround",
+            "18,000 hrs content",
+            "Spoken English vertical",
+          ],
+        },
 
-      ].map((skill, index) => (
+        {
+          year: "Mar 2010 – Aug 2017",
+          company: "Sahara Q Shop",
+          category: "FMCG & retail",
+          title: "CGM & Chief Operating Officer",
+          desc: "Led India's first fully private-label FMCG and retail brand — launching 378 products and 763 SKUs simultaneously, scaling to 425 cities across 13 states in 8 months, and earning a Guinness World Record. Also oversaw the Group's jewellery foray under Sahara Q Gold Mart.",
+          tags: [
+            "Guinness World Record",
+            "378 products launched",
+            "3,500-person team",
+            "152 contract plants",
+            "Chairman Club Award",
+          ],
+        },
+
+        {
+          year: "May 2008 – Feb 2010",
+          company: "Sahara Global & Care House",
+          category: "Travel & NRI services",
+          title: "GM & Chief Operating Officer",
+          desc: "Revitalised an integrated medical tourism and MICE travel business attracting patients from UAE, Africa, USA, Canada, and UK. Simultaneously expanded Sahara Care House via a Direct Selling Model turnaround, growing NRI market revenue significantly.",
+          tags: [
+            "Medical tourism",
+            "MICE travel",
+            "Direct selling turnaround",
+          ],
+        },
+
+        {
+          year: "Mar 2006 – Apr 2008",
+          company: "Sahara Care House",
+          category: "NRI concierge",
+          title: "Head — Unified Contact Centre",
+          desc: "Built from scratch a 24/7 unified contact centre serving the global Indian diaspora — delivering 60 services and 5,000 products, expanding membership across the US, UK, Europe, Middle East, and Asia.",
+          tags: [
+            "60 services, 5,000 products",
+            "6 global regions",
+            "Outbound membership sales",
+          ],
+        },
+
+      ].map((item, index) => (
 
         <div
           key={index}
-          className="skill-pill"
+          className="
+            group
+            grid
+            md:grid-cols-[220px_1fr]
+            gap-10
+            border-b
+            border-white/10
+            pb-16
+            transition-all
+            duration-500
+            hover:translate-x-2
+          "
         >
-          {skill}
+
+          {/* LEFT SIDE */}
+
+          <div className="space-y-2">
+
+            <p
+              className="
+                text-[#3cb7ff]
+                text-sm
+                tracking-[1px]
+                uppercase
+              "
+            >
+              {item.year}
+            </p>
+
+            <h3
+              className="
+                text-white
+                text-xl
+                font-semibold
+                uppercase
+                tracking-[1px]
+              "
+            >
+              {item.company}
+            </h3>
+
+            <p className="text-white/50 text-sm">
+
+              {item.category}
+
+            </p>
+
+          </div>
+
+
+          {/* RIGHT SIDE */}
+
+          <div
+            className="
+              transition-all
+              duration-500
+              group-hover:translate-y-[-2px]
+            "
+          >
+
+            <h2
+              className="
+                text-white
+                text-3xl
+                md:text-4xl
+                font-semibold
+                mb-5
+              "
+            >
+
+              {item.title}
+
+            </h2>
+
+            <p
+              className="
+                text-white/75
+                text-lg
+                leading-relaxed
+                mb-8
+              "
+            >
+
+              {item.desc}
+
+            </p>
+
+
+            {/* TAGS */}
+
+            <div className="flex flex-wrap gap-3">
+
+              {item.tags.map((tag, i) => (
+
+                <span
+                  key={i}
+                  className="
+                    px-4
+                    py-2
+                    rounded-full
+                    border
+                    border-white/10
+                    text-white/70
+                    text-sm
+                    hover:border-[#3cb7ff]
+                    hover:text-white
+                    transition-all
+                    duration-300
+                  "
+                >
+
+                  {tag}
+
+                </span>
+
+              ))}
+
+            </div>
+
+          </div>
+
         </div>
 
       ))}
