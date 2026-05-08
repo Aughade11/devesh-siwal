@@ -21,7 +21,7 @@ export default function Navbar() {
         "about",
         "expertise",
         "industries",
-        "skills",
+        "experience",
         "contact"
       ];
 
@@ -69,7 +69,7 @@ export default function Navbar() {
     ["about", "About"],
     ["expertise", "Expertise"],
     ["industries", "Industries"],
-    ["skills", "Skills"],
+    ["experience", "Experience"],
     ["contact", "Contact"]
   ];
 

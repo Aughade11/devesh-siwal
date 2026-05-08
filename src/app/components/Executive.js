@@ -604,7 +604,7 @@ const handleSubmit = async (e) => {
       </section>
       {/* KEY SKILLS */}
 <section
-  id="career"
+  id="experience"
   className="blue-gradient py-28 px-6"
 >
 
