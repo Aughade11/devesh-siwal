@@ -12,7 +12,7 @@ export default function Home() {
 
      
       <footer className="text-center py-6 bg-gray-200">
-        © 2026 Devesh Siwal. All rights reserved.
+        © 2026 Devesh Siwal. Strategic Leadership  ·  25 Years
       </footer>
 
     </main>
