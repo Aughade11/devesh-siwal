@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function Navbar() {
 
@@ -27,8 +28,7 @@ export default function Navbar() {
 
       sections.forEach((section) => {
 
-        const element =
-          document.getElementById(section);
+        const element = document.getElementById(section);
 
         if (element) {
 
@@ -51,16 +51,10 @@ export default function Navbar() {
 
     };
 
-    window.addEventListener(
-      "scroll",
-      handleScroll
-    );
+    window.addEventListener("scroll", handleScroll);
 
     return () =>
-      window.removeEventListener(
-        "scroll",
-        handleScroll
-      );
+      window.removeEventListener("scroll", handleScroll);
 
   }, []);
 
@@ -70,7 +64,8 @@ export default function Navbar() {
     ["expertise", "Expertise"],
     ["industries", "Industries"],
     ["experience", "Experience"],
-    ["contact", "Contact"]
+    ["contact", "Contact"],
+    ["blog", "Blog"]
   ];
 
   return (
@@ -98,18 +93,33 @@ export default function Navbar() {
 
           <li key={id}>
 
-            <a
-              href={`#${id}`}
-              className={`nav-link ${
-                activeSection === id
-                  ? "active-link"
-                  : ""
-              }`}
-            >
+            {id === "blog" ? (
 
-              {label}
+              <Link
+                href="/blog"
+                className="nav-link"
+              >
 
-            </a>
+                {label}
+
+              </Link>
+
+            ) : (
+
+              <a
+                href={`#${id}`}
+                className={`nav-link ${
+                  activeSection === id
+                    ? "active-link"
+                    : ""
+                }`}
+              >
+
+                {label}
+
+              </a>
+
+            )}
 
           </li>
 
@@ -127,8 +137,6 @@ export default function Navbar() {
           justify-between
         "
       >
-
-       
 
         {/* HAMBURGER */}
         <button
@@ -206,24 +214,42 @@ export default function Navbar() {
 
             <li key={id}>
 
-              <a
-                href={`#${id}`}
-                onClick={() =>
-                  setMobileMenu(false)
-                }
-                className={`
-                  nav-link
-                  ${
-                    activeSection === id
-                      ? "active-link"
-                      : ""
+              {id === "blog" ? (
+
+                <Link
+                  href="/blogs"
+                  onClick={() =>
+                    setMobileMenu(false)
                   }
-                `}
-              >
+                  className="nav-link"
+                >
 
-                {label}
+                  {label}
 
-              </a>
+                </Link>
+
+              ) : (
+
+                <a
+                  href={`#${id}`}
+                  onClick={() =>
+                    setMobileMenu(false)
+                  }
+                  className={`
+                    nav-link
+                    ${
+                      activeSection === id
+                        ? "active-link"
+                        : ""
+                    }
+                  `}
+                >
+
+                  {label}
+
+                </a>
+
+              )}
 
             </li>
 
@@ -238,3 +264,4 @@ export default function Navbar() {
   );
 
 }
+
