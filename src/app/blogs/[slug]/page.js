@@ -1,5 +1,6 @@
 import blogs from "@/data/blogs";
 
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import Navbar from "@/app/components/header";
 
@@ -18,10 +19,31 @@ export default async function BlogDetailPage({
     notFound();
   }
 
+  // RECENT 7 BLOGS
+  const recentBlogs = blogs
+
+    // REMOVE CURRENT BLOG
+    .filter(
+      (item) =>
+        item.slug !== resolvedParams.slug
+    )
+
+    // SORT BY LATEST DATE
+    .sort(
+      (a, b) =>
+        new Date(b.date) -
+        new Date(a.date)
+    )
+
+    // TAKE ONLY 7
+    .slice(0, 7);
+
   return (
 
     <main className="bg-[#07111f] text-white overflow-hidden">
-        <Navbar />
+
+      <Navbar />
+
       {/* HERO SECTION */}
 
       <section className="relative h-screen">
@@ -124,122 +146,259 @@ export default async function BlogDetailPage({
       </section>
 
 
-      {/* ARTICLE */}
+      {/* ARTICLE + SIDEBAR */}
 
       <section className="py-28 px-6">
 
-        <div className="max-w-4xl mx-auto">
+        <div
+          className="
+            max-w-7xl
+            mx-auto
+            grid
+            grid-cols-1
+            lg:grid-cols-4
+            gap-16
+          "
+        >
 
-          {/* INTRO */}
+          {/* ARTICLE */}
 
-          <p
-            className="
-              text-2xl
-              leading-relaxed
-              text-white/80
-              mb-20
-            "
-          >
+          <div className="lg:col-span-3">
 
-            Modern organizations are no longer competing
-            solely on products or services.
+            {/* INTRO */}
 
-            They are competing on clarity,
-            speed of execution,
-            and the ability to adapt under pressure.
-
-          </p>
-
-
-          {/* CONTENT */}
-
-          <div
-            className="
-              space-y-12
-              text-xl
-              leading-[2.2]
-              text-white/75
-            "
-          >
-
-            <p>
-
-              Sustainable growth is rarely accidental.
-
-              The strongest companies build systems before
-              they desperately need them.
-
-              They invest in operational discipline,
-              leadership alignment,
-              and organizational clarity long before
-              scale exposes weaknesses.
-
-            </p>
-
-
-            <p>
-
-              In today’s market,
-              execution speed has become a competitive advantage.
-
-              Businesses capable of making decisions faster
-              while maintaining strategic direction
-              consistently outperform slower organizations.
-
-            </p>
-
-
-            {/* QUOTE BLOCK */}
-
-            <div
+            <p
               className="
-                border-l-4
-                border-[#3cb7ff]
-                pl-10
-                py-4
-                my-20
+                text-2xl
+                leading-relaxed
+                text-white/80
+                mb-20
               "
             >
 
-              <h3
+              Modern organizations are no longer competing
+              solely on products or services.
+
+              They are competing on clarity,
+              speed of execution,
+              and the ability to adapt under pressure.
+
+            </p>
+
+
+            {/* CONTENT */}
+
+            <div
+              className="
+                space-y-12
+                text-xl
+                leading-[2.2]
+                text-white/75
+              "
+            >
+
+              <p>
+
+                Sustainable growth is rarely accidental.
+
+                The strongest companies build systems before
+                they desperately need them.
+
+                They invest in operational discipline,
+                leadership alignment,
+                and organizational clarity long before
+                scale exposes weaknesses.
+
+              </p>
+
+
+              <p>
+
+                In today’s market,
+                execution speed has become a competitive advantage.
+
+                Businesses capable of making decisions faster
+                while maintaining strategic direction
+                consistently outperform slower organizations.
+
+              </p>
+
+
+              {/* QUOTE BLOCK */}
+
+              <div
                 className="
-                  text-3xl
-                  md:text-4xl
-                  font-semibold
-                  italic
-                  text-white
-                  leading-relaxed
+                  border-l-4
+                  border-[#3cb7ff]
+                  pl-10
+                  py-4
+                  my-20
                 "
               >
 
-                “Execution without clarity creates chaos.
-                Clarity without execution creates stagnation.”
+                <h3
+                  className="
+                    text-3xl
+                    md:text-4xl
+                    font-semibold
+                    italic
+                    text-white
+                    leading-relaxed
+                  "
+                >
 
-              </h3>
+                  “Execution without clarity creates chaos.
+                  Clarity without execution creates stagnation.”
+
+                </h3>
+
+              </div>
+
+
+              <p>
+
+                Leadership today requires more than vision.
+
+                It requires the ability to align people,
+                systems,
+                communication,
+                and accountability toward a unified direction.
+
+              </p>
+
+
+              <p>
+
+                The organizations that sustain momentum are
+                the ones capable of building cultures
+                where ownership becomes natural,
+                not forced.
+
+              </p>
 
             </div>
 
-
-            <p>
-
-              Leadership today requires more than vision.
-
-              It requires the ability to align people,
-              systems,
-              communication,
-              and accountability toward a unified direction.
-
-            </p>
+          </div>
 
 
-            <p>
+          {/* SIDEBAR */}
 
-              The organizations that sustain momentum are
-              the ones capable of building cultures
-              where ownership becomes natural,
-              not forced.
+          <div>
 
-            </p>
+            <div className="sticky top-28">
+
+              <h2
+                className="
+                  text-3xl
+                  font-semibold
+                  mb-8
+                "
+              >
+
+                Recent Blogs
+
+              </h2>
+
+              <div
+                className="
+                  flex
+                  flex-col
+                  gap-6
+                "
+              >
+
+                {recentBlogs.map((item) => (
+
+  <Link
+    key={item.slug}
+    href={`/blogs/${item.slug}`}
+    className="
+      group
+      flex
+      items-center
+      gap-4
+      border
+      border-white/10
+      rounded-2xl
+      p-3
+      bg-white/[0.03]
+      hover:bg-white/[0.06]
+      transition-all
+      duration-300
+    "
+  >
+
+    {/* IMAGE */}
+
+    <div
+      className="
+        w-28
+        h-24
+        rounded-xl
+        overflow-hidden
+        flex-shrink-0
+      "
+    >
+
+      <img
+        src={item.image}
+        alt={item.title}
+        className="
+          w-full
+          h-full
+          object-cover
+          group-hover:scale-110
+          transition-all
+          duration-500
+        "
+      />
+
+    </div>
+
+    {/* CONTENT */}
+
+    <div className="flex-1">
+
+      <p
+        className="
+          text-[11px]
+          uppercase
+          tracking-[3px]
+          text-[#3cb7ff]
+          mb-2
+        "
+      >
+
+        {item.date}
+
+      </p>
+
+      <h3
+        className="
+          text-base
+          md:text-lg
+          font-semibold
+          leading-snug
+          text-white
+          group-hover:text-[#3cb7ff]
+          transition-all
+          duration-300
+        "
+      >
+
+        {item.title}
+
+      </h3>
+
+    </div>
+
+  </Link>
+
+))}
+
+              </div>
+
+            </div>
 
           </div>
 
@@ -325,75 +484,8 @@ export default async function BlogDetailPage({
 
       </section>
 
-
-      {/* NEXT ARTICLE */}
-
-      <section className="pb-32 px-6">
-
-        <div
-          className="
-            max-w-6xl
-            mx-auto
-            border
-            border-white/10
-            rounded-[40px]
-            bg-white/[0.03]
-            p-12
-          "
-        >
-
-          <p
-            className="
-              uppercase
-              tracking-[4px]
-              text-[#3cb7ff]
-              mb-5
-            "
-          >
-
-            Continue Reading
-
-          </p>
-
-          <h2
-            className="
-              text-4xl
-              md:text-6xl
-              font-semibold
-              leading-tight
-              max-w-4xl
-              mb-10
-            "
-          >
-
-            The Future Of Leadership
-            In High-Growth Organizations
-
-          </h2>
-
-          <button
-            className="
-              border
-              border-white/10
-              px-8
-              py-4
-              rounded-full
-              hover:border-[#3cb7ff]
-              hover:text-[#3cb7ff]
-              transition-all
-              duration-300
-            "
-          >
-
-            Read Next Article
-
-          </button>
-
-        </div>
-
-      </section>
-
     </main>
 
   );
+
 }
