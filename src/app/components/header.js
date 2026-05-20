@@ -96,7 +96,7 @@ export default function Navbar() {
             {id === "blog" ? (
 
               <Link
-                href="/blog"
+                href="/blogs"
                 className="nav-link"
               >
 
